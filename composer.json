@@ -1,0 +1,93 @@
+{
+    "name": "airondev/paysub",
+    "description": "Provides an inteface to paystack's subscription service",
+    "keywords": [
+        "airondev",
+        "paysub"
+    ],
+    "homepage": "https://github.com/airondev/paysub",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/airondev/paysub/issues",
+        "source": "https://github.com/airondev/paysub"
+    },
+    "authors": [
+        {
+            "name": "Faruk Nasir",
+            "role": "Original Developer"
+        },
+        {
+            "name": "Aaron A",
+            "email": "airondev@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "ext-json": "*",
+        "doctrine/dbal": "*",
+        "dompdf/dompdf": "^0.8.0",
+        "friendsofphp/php-cs-fixer": "^2.18",
+        "illuminate/contracts": "^6.0|^7.0|^8.0",
+        "illuminate/database": "^6.0|^7.0|^8.0",
+        "illuminate/http": "^6.0|^7.0|^8.0",
+        "illuminate/log": "^6.0|^7.0|^8.0",
+        "illuminate/notifications": "^6.0|^7.0|^8.0",
+        "illuminate/routing": "^6.0|^7.0|^8.0",
+        "illuminate/support": "^6.0|^7.0|^8.0",
+        "illuminate/view": "^6.0|^7.0|^8.0",
+        "moneyphp/money": "^3.2",
+        "nesbot/carbon": "^2.0",
+        "php-curl-class/php-curl-class": "^8.9",
+        "staudenmeir/belongs-to-through": "^2.5",
+        "symfony/http-kernel": "^4.3|^5.0",
+        "symfony/intl": "^4.3|^5.0"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "mockery/mockery": "^1.0",
+        "orchestra/testbench": "^6.0",
+        "phpcompatibility/php-compatibility": "*",
+        "phpunit/phpunit": "^9.3",
+        "vimeo/psalm": "^4.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "StarfolkSoftware\\Paysub\\": "src",
+            "StarfolkSoftware\\Paysub\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "StarfolkSoftware\\Paysub\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "compatibility": "vendor/bin/phpcs -p . --standard=PHPCompatibility",
+        "php-cs-fixer": "vendor/bin/php-cs-fixer fix"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.0.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "StarfolkSoftware\\Paysub\\PaysubServiceProvider"
+            ],
+            "aliases": {
+                "Subscription": "StarfolkSoftware\\Paysub\\PaysubFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
